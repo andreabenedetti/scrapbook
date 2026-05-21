@@ -7,14 +7,20 @@
             content="width=device-width, initial-scale=1.0, user-scalable=no"
         />
         <title>Diario</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Playwrite+NZ+Basic:wght@100..400&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <!-- PIN SCREEN -->
         <div id="pin-screen">
             <div class="pin-card">
-                <div class="pin-icon">✈️</div>
-                <h1 class="pin-title">Il nostro diario</h1>
+                <div class="pin-icon">Los misters</div>
+                <h1 class="pin-title">Scrapbook</h1>
                 <p class="pin-subtitle">Inserisci il PIN per accedere</p>
                 <div class="pin-dots">
                     <span class="pin-dot" id="dot-0"></span>
@@ -73,6 +79,7 @@
         <!-- UPLOAD PANEL -->
         <div id="panel" class="panel hidden">
             <div class="panel-header">
+                <span class="panel-title">Aggiungi</span>
                 <button id="panel-close" aria-label="Chiudi">
                     <svg
                         width="22"
@@ -87,7 +94,6 @@
                         <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
                 </button>
-                <span class="panel-title">Aggiungi</span>
             </div>
 
             <div class="panel-tabs">

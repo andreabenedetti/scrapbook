@@ -181,9 +181,6 @@ function createPhotoEl(item) {
   img.draggable = false;
   img.loading = "lazy";
   el.appendChild(img);
-  const cap = document.createElement("div");
-  cap.className = "photo-caption";
-  el.appendChild(cap);
   canvas.appendChild(el);
   bindItemEvents(el);
   state.itemMap[item.id] = el;
@@ -196,6 +193,11 @@ function createNoteEl(item) {
   el.dataset.id = item.id;
   el.style.cssText = `left:${item.x}px;top:${item.y}px;transform:rotate(${item.rot}deg);z-index:${item.z || 1}`;
   el.textContent = item.text;
+  const p = document.createElement("p");
+  const d = new Date(item.created_at);
+  p.className = "caption";
+  p.textContent = d.toLocaleDateString();
+  el.appendChild(p);
   canvas.appendChild(el);
   bindItemEvents(el);
   state.itemMap[item.id] = el;
