@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Diario</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- PIN SCREEN -->
+  <div id="pin-screen">
+    <div class="pin-card">
+      <div class="pin-icon">✈️</div>
+      <h1 class="pin-title">Il nostro diario</h1>
+      <p class="pin-subtitle">Inserisci il PIN per accedere</p>
+      <div class="pin-dots">
+        <span class="pin-dot" id="dot-0"></span>
+        <span class="pin-dot" id="dot-1"></span>
+        <span class="pin-dot" id="dot-2"></span>
+        <span class="pin-dot" id="dot-3"></span>
+      </div>
+      <div class="pin-keypad">
+        <button class="pin-key" data-n="1">1</button>
+        <button class="pin-key" data-n="2">2</button>
+        <button class="pin-key" data-n="3">3</button>
+        <button class="pin-key" data-n="4">4</button>
+        <button class="pin-key" data-n="5">5</button>
+        <button class="pin-key" data-n="6">6</button>
+        <button class="pin-key" data-n="7">7</button>
+        <button class="pin-key" data-n="8">8</button>
+        <button class="pin-key" data-n="9">9</button>
+        <button class="pin-key pin-key--empty"></button>
+        <button class="pin-key" data-n="0">0</button>
+        <button class="pin-key pin-key--del" id="pin-del">⌫</button>
+      </div>
+      <p id="pin-error" class="pin-error hidden">PIN errato, riprova</p>
+    </div>
+  </div>
+
+  <!-- CANVAS VIEW -->
+  <div id="app" class="hidden">
+    <div id="canvas-wrapper">
+      <div id="canvas"></div>
+    </div>
+
+    <!-- FAB Button -->
+    <button id="fab" aria-label="Aggiungi contenuto">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="12" y1="5" x2="12" y2="19"/>
+        <line x1="5" y1="12" x2="19" y2="12"/>
+      </svg>
+    </button>
+
+    <!-- Sync indicator -->
+    <div id="sync-indicator" class="sync-indicator hidden">
+      <span class="sync-dot"></span>
+    </div>
+  </div>
+
+  <!-- UPLOAD PANEL -->
+  <div id="panel" class="panel hidden">
+    <div class="panel-header">
+      <button id="panel-close" aria-label="Chiudi">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <span class="panel-title">Aggiungi</span>
+    </div>
+
+    <div class="panel-tabs">
+      <button class="tab active" data-tab="photo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Foto
+      </button>
+      <button class="tab" data-tab="text">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="13" y1="18" x2="3" y2="18"/></svg>
+        Testo
+      </button>
+    </div>
+
+    <div class="panel-body">
+      <!-- Photo tab -->
+      <div id="tab-photo" class="tab-content active">
+        <label id="photo-drop" for="photo-input">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span>Tocca per scegliere o scatta una foto</span>
+          <input type="file" id="photo-input" accept="image/*" capture="environment" multiple />
+        </label>
+        <div id="photo-preview-list"></div>
+        <button id="photo-confirm" class="btn-confirm hidden">Aggiungi al diario</button>
+      </div>
+
+      <!-- Text tab -->
+      <div id="tab-text" class="tab-content">
+        <div class="note-preview-wrapper">
+          <textarea id="text-input" placeholder="Scrivi qualcosa…" maxlength="400" rows="6"></textarea>
+          <div id="char-count">0 / 400</div>
+        </div>
+        <button id="text-confirm" class="btn-confirm">Aggiungi al diario</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay" class="hidden"></div>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
