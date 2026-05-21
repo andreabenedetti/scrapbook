@@ -89,7 +89,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-cover);
+    background: var(--color-bg);
     z-index: 1000;
 }
 
@@ -101,7 +101,7 @@ body {
     padding: var(--space-xl) var(--space-lg);
     width: 100%;
     max-width: 320px;
-    border: 2px solid var(--color-bg);
+    border: 2px solid var(--color-cover);
     border-radius: 20px;
 }
 
