@@ -234,6 +234,7 @@ body {
     /* Griglia quadrettata + bordo perimetrale come riga rossa del quaderno */
     background-image:
         /* bordo sinistro */
+        url("GIAPPONE.svg"),
         linear-gradient(
             to right,
             transparent var(--margin-size),
@@ -283,12 +284,25 @@ body {
             );
 
     background-size:
+        800px,
         100% 100%,
         100% 100%,
         100% 100%,
         100% 100%,
         var(--grid-size) var(--grid-size),
         var(--grid-size) var(--grid-size);
+
+    background-repeat:
+        no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
+
+    background-position:
+        50% 50%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%;
 }
 
 /* ============================================================

@@ -11,7 +11,7 @@ const PIN_STORAGE_K = "diario_pin";
 
 const CANVAS_W = 4000;
 const CANVAS_H = 4000;
-const ITEM_W_PHOTO = 180;
+const ITEM_W_PHOTO = 250;
 const COMPRESS_MAX = 900;
 const COMPRESS_Q = 0.78;
 
